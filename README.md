@@ -4,6 +4,7 @@ Study API to reminder incomming alerts managed by users, and also add manualy le
 ## Dependencies
  * Elixir
  * Phoenix
+ * docker-compose
 
 ## Overview
 
@@ -16,6 +17,7 @@ Study API to reminder incomming alerts managed by users, and also add manualy le
 
 To start your Phoenix server:
 
+  * On the root folder of this project run `docker-compose up`
   * Install dependencies with `mix deps.get`
   * Create and migrate your database with `mix ecto.setup`
   * Start Phoenix endpoint with `mix phx.server`
