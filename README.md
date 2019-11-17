@@ -1,4 +1,17 @@
-# StudyReminder
+# Study Reminder
+
+## Dependencies
+ * Elixir
+ * Phoenix
+
+## Overview
+
+![study-app-overview](/img/study-app-overview.jpeg)
+
+## Entity
+
+![study-app-der](/img/study-app-der.jpeg)
+
 
 To start your Phoenix server:
 
@@ -17,3 +30,8 @@ Ready to run in production? Please [check our deployment guides](https://hexdocs
   * Docs: https://hexdocs.pm/phoenix
   * Mailing list: http://groups.google.com/group/phoenix-talk
   * Source: https://github.com/phoenixframework/phoenix
+
+
+### Author
+
+* **Daniel Santos** - *Trying to keep simple and clean* - [drsantos20](https://github.com/drsantos20)
