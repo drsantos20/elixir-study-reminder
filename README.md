@@ -1,4 +1,5 @@
 # Study Reminder
+Study API to reminder incomming alerts managed by users, and also add manualy lessons made by learner, in order to track how much each user spent by day/week/monthly 
 
 ## Dependencies
  * Elixir
