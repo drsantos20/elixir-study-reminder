@@ -101,4 +101,16 @@ defmodule StudyReminder.Accounts do
   def change_user(%User{} = user) do
     User.changeset(user, %{})
   end
+
+
+
+def get_by_email(email) do
+  case Repo.get_by(User, email: email) do
+    nil ->
+      {:error, :not_found}
+    user ->
+      {:ok, user}
+  end
+end
+
 end

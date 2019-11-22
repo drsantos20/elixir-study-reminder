@@ -19,4 +19,11 @@ defmodule StudyReminderWeb.FallbackController do
     |> put_view(StudyReminderWeb.ErrorView)
     |> render(:"404")
   end
+
+  def call(conn, {:error, :unauthorized}) do
+    conn
+    |> put_status(:unauthorized)
+    |> render(StudyReminderWeb.ErrorView, :"401")
+  end
+
 end
