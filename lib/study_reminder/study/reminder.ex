@@ -5,6 +5,7 @@ defmodule StudyReminder.Study.Reminder do
   schema "reminders" do
     field :name, :string
     field :reminder_enabled, :boolean, default: false
+    belongs_to :author, StudyReminder.Accounts.User, foreign_key: :user_id
 
     timestamps()
   end

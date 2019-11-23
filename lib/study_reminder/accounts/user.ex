@@ -6,6 +6,7 @@ defmodule StudyReminder.Accounts.User do
     field :email, :string
     field :encrypted_password, :string
     field :password, :string, virtual: true
+    has_many :reminders, StudyReminder.Study.Reminder
 
     timestamps()
   end
