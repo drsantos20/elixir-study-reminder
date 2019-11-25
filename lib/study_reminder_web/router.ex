@@ -18,7 +18,8 @@ defmodule StudyReminderWeb.Router do
 
   scope "/api", StudyReminderWeb do
     pipe_through [:api, :auth]
-    #resources "/activities", ActivitiesController, except: [:new, :edit]
+    
+    resources "/reminders", ReminderController
   end
 
 end

@@ -5,15 +5,17 @@ defmodule StudyReminder.Study.Reminder do
   schema "reminders" do
     field :name, :string
     field :reminder_enabled, :boolean, default: false
-    belongs_to :author, StudyReminder.Accounts.User, foreign_key: :user_id
+    belongs_to :user, StudyReminder.Accounts.User, foreign_key: :user_id
 
     timestamps()
   end
 
+  @required_fields ~w(name user_id)a
+
   @doc false
   def changeset(reminder, attrs) do
     reminder
-    |> cast(attrs, [:name, :reminder_enabled])
-    |> validate_required([:name, :reminder_enabled])
+    |> cast(attrs, @required_fields)
+    |> validate_required(@required_fields)
   end
 end

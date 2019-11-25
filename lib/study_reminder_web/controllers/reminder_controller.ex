@@ -11,8 +11,10 @@ defmodule StudyReminderWeb.ReminderController do
     render(conn, "index.json", reminders: reminders)
   end
 
-  def create(conn, %{"reminder" => reminder_params}) do
-    with {:ok, %Reminder{} = reminder} <- Study.create_reminder(reminder_params) do
+  def create(conn, %{"reminder_enabled" => reminder_enabled}) do
+    account = conn.assigns.current_user
+    IO.inspect(account)
+    with {:ok, user, reminder} <- account |> Study.add_reminder(reminder_enabled) do
       conn
       |> put_status(:created)
       |> put_resp_header("location", Routes.reminder_path(conn, :show, reminder))

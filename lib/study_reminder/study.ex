@@ -7,6 +7,7 @@ defmodule StudyReminder.Study do
   alias StudyReminder.Repo
 
   alias StudyReminder.Study.Reminder
+  alias StudyReminder.Accounts.User
 
   @doc """
   Returns the list of reminders.
@@ -37,6 +38,17 @@ defmodule StudyReminder.Study do
   """
   def get_reminder!(id), do: Repo.get!(Reminder, id)
 
+  def add_reminder(%User{id: account_id} = account, %Reminder{} = reminder_enabled) do
+    reminder_attrs = %{account_id: account_id, reminder_enabled: reminder_enabled}
+
+    with {:ok, reminder} <- reminder_attrs |> create_reminder() do
+      {:ok, account, reminder}
+    end
+  end
+
+
+
+
   @doc """
   Creates a reminder.
 
@@ -50,6 +62,7 @@ defmodule StudyReminder.Study do
 
   """
   def create_reminder(attrs \\ %{}) do
+    IO.inspect(attrs)
     %Reminder{}
     |> Reminder.changeset(attrs)
     |> Repo.insert()
