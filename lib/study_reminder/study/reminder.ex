@@ -10,12 +10,9 @@ defmodule StudyReminder.Study.Reminder do
     timestamps()
   end
 
-  @required_fields ~w(name user_id)a
-
   @doc false
   def changeset(reminder, attrs) do
     reminder
-    |> cast(attrs, @required_fields)
-    |> validate_required(@required_fields)
+    |> cast(attrs, [:reminder_enabled, :name])
   end
 end

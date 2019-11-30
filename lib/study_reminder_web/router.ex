@@ -19,7 +19,7 @@ defmodule StudyReminderWeb.Router do
   scope "/api", StudyReminderWeb do
     pipe_through [:api, :auth]
     
-    resources "/reminders", ReminderController
+    post "/reminders", ReminderController, :create
   end
 
 end

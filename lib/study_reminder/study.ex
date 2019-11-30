@@ -38,17 +38,6 @@ defmodule StudyReminder.Study do
   """
   def get_reminder!(id), do: Repo.get!(Reminder, id)
 
-  def add_reminder(%User{id: account_id} = account, %Reminder{} = reminder_enabled) do
-    reminder_attrs = %{account_id: account_id, reminder_enabled: reminder_enabled}
-
-    with {:ok, reminder} <- reminder_attrs |> create_reminder() do
-      {:ok, account, reminder}
-    end
-  end
-
-
-
-
   @doc """
   Creates a reminder.
 
@@ -61,10 +50,10 @@ defmodule StudyReminder.Study do
       {:error, %Ecto.Changeset{}}
 
   """
-  def create_reminder(attrs \\ %{}) do
-    IO.inspect(attrs)
+  def create_reminder(user, attrs \\ %{}) do
     %Reminder{}
     |> Reminder.changeset(attrs)
+    |> Ecto.Changeset.put_assoc(:user, user)
     |> Repo.insert()
   end
 
