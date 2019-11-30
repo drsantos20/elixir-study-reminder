@@ -7,6 +7,7 @@ defmodule StudyReminder.Study do
   alias StudyReminder.Repo
 
   alias StudyReminder.Study.Reminder
+  alias StudyReminder.Accounts.User
 
   @doc """
   Returns the list of reminders.
@@ -49,9 +50,10 @@ defmodule StudyReminder.Study do
       {:error, %Ecto.Changeset{}}
 
   """
-  def create_reminder(attrs \\ %{}) do
+  def create_reminder(user, attrs \\ %{}) do
     %Reminder{}
     |> Reminder.changeset(attrs)
+    |> Ecto.Changeset.put_assoc(:user, user)
     |> Repo.insert()
   end
 
