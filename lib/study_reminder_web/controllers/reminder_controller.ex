@@ -12,7 +12,6 @@ defmodule StudyReminderWeb.ReminderController do
   end
 
   def create(conn, reminder_params) do
-    IO.inspect(reminder_params)
     user = conn.assigns.current_user
     with {:ok, %Reminder{} = reminder} <- Study.create_reminder(user, reminder_params) do
       conn

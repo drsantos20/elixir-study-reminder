@@ -7,7 +7,6 @@ defmodule StudyReminder.Study do
   alias StudyReminder.Repo
 
   alias StudyReminder.Study.Reminder
-  alias StudyReminder.Accounts.User
 
   @doc """
   Returns the list of reminders.
