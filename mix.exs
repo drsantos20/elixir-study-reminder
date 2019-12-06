@@ -45,6 +45,7 @@ defmodule StudyReminder.MixProject do
       {:comeonin, "~> 4.0"},
       {:bcrypt_elixir, "~> 1.0"},
       {:poison, "~> 3.1"},
+      {:faker, "~> 0.13", only: :test},
     ]
   end
 
