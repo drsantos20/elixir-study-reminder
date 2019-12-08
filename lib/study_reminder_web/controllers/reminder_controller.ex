@@ -26,9 +26,10 @@ defmodule StudyReminderWeb.ReminderController do
   end
 
   def update(conn, %{"id" => id, "reminder" => reminder_params}) do
+    user = conn.assigns.current_user
     reminder = Study.get_reminder!(id)
 
-    with {:ok, %Reminder{} = reminder} <- Study.update_reminder(reminder, reminder_params) do
+    with {:ok, %Reminder{} = reminder} <- Study.update_reminder(user, reminder, reminder_params) do
       render(conn, "show.json", reminder: reminder)
     end
   end
